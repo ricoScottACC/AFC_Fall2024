@@ -46,13 +46,40 @@
             </label>
             <br>
             <label>Phone Number:
-                <input type="text" name="" id="" required placeholder="Format 111-222-3333" >
+                <input type="text" name="" id="" required placeholder="Format: 111-222-3333" >
             </label>
             <br>
             <label>Email:
-                <input type="email" name="" id="">
+                <input type="email" name="" id="" placeholder="Ex: name@website.com"
+                pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
             </label>
             <br>
+            <label>Password:
+                <input type="password" name="" id="" title="Must contain one number, one symbol, one lowercase, and one uppercase." required minlength="8" maxlength="12"
+                pattern="(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).*">
+            </label>
+            <br>
+            <label>Marital Status:
+                <input type="radio" name="isMarried" id="">Married
+                <input type="radio" name="isMarried" id="" checked>Single
+                <input type="radio" name="isMarried" id="">Complicated
+            </label>
+            <br>
+            <label">Favorite Colors:
+                <input type="checkbox" name="color1" id="" value="blue">Blue
+                <input type="checkbox" name="color2" id="" value="teal">Teal
+                <input type="checkbox" name="color3" id="" value="orange">Orange
+                <input type="checkbox" name="color4" id="" value="red">Red
+                <input type="checkbox" name="color5" id="" value="purple">Purple
+            </label>
+            <br>
+            <label>Enter other information about yourself (30 char max):
+                <br>
+                <textarea name="" id="" cols="30" rows="4" maxlength="30"> </textarea>
+            </label>
+            <br>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
         </form>
         
         
