@@ -13,7 +13,7 @@ age = 30
 // 5. Declare two variables `firstName` and `lastName`, and assign them values. Then, create a third variable `fullName` that concatenates both.
 let firstName = 'Rico'
 let lastName = 'Scott'
-let fullName = firstName + ' ' + lastName
+let fullName = `${firstName} ${lastName}`
 
 // 6. Create an array named `colors` with the values 'red', 'green', and 'blue'
 let colors = ['red', 'green', 'blue']
