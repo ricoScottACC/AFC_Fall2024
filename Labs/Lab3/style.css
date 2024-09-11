@@ -117,7 +117,7 @@ img {
 /* <!-- 20. Add a shadow to all <div> elements --> */
 /* <div>This is a div.</div> */
 div {
-    text-shadow: 2px 2px red;
+    box-shadow: 2px 2px red;
 }
 
 /* <!-- 21. Change the display property of all <span> elements to block --> */
