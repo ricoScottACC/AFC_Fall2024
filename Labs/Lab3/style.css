@@ -1,0 +1,151 @@
+/* <!-- 1. Apply a red background to all paragraphs --> */
+/* <p>This is a paragraph.</p> */
+p {
+    background-color: red;
+}
+
+/* <!-- 2. Apply a blue text color to elements with the class `blue-text` --> */
+/* <p class="blue-text">This is a paragraph.</p> */
+.blue-text {
+    color: blue;
+}
+
+/* <!-- 3. Apply a green border to the element with the id `unique-element` --> */
+/* <p id="unique-element">This is a unique paragraph.</p> */
+#unique-element {
+    border: green solid;
+}
+
+/* <!-- 4. Apply a font size of 20px to all <span> elements inside <div> --> */
+/* <div>
+  <span>This is a span inside a div.</span>
+</div> */
+div span {
+    font-size: 20px;
+}
+
+/* <!-- 5. Apply a yellow background to all input elements with type="text" --> */
+/* <input type="text"> */
+/* <input type="submit"> */
+[type="text"] {
+    background-color: yellow;
+}
+
+/* <!-- 6. Change the text color of all <h1> elements to purple --> */
+/* <h1>This is a heading.</h1> */
+h1 {
+    color: purple;
+}
+
+/* <!-- 7. Change the background color of all <div> elements to light blue --> */
+/* <div>This is a div.</div> */
+div {
+    background-color: lightblue;
+}
+
+/* <!-- 8. Apply a background image to the body element --> */
+/* <body></body> */
+body {
+    background-image: url("static.jpg");
+}
+
+/* <!-- 9. Prevent the background image from repeating --> */
+/* <body></body> */
+body {
+    background-repeat: no-repeat;
+}
+
+/* <!-- 10. Set the opacity of all <div> elements to 0.5 --> */
+/* <div>This is a div.</div> */
+div {
+    opacity: 0.5;
+}
+
+/* <!-- 11. Change the font family of all <p> elements to Arial --> */
+/* <p>This is a paragraph.</p> */
+
+
+/* <!-- 12. Change the font size of all <h2> elements to 24px --> */
+/* <h2>This is a subheading.</h2> */
+h2 {
+    font-size: 24px;
+}
+
+/* <!-- 13. Make the text of all <p> elements bold --> */
+/* <p>This is a paragraph.</p> */
+p {
+    font-weight: bold;
+}
+
+/* <!-- 14. Center align all <h3> elements --> */
+/* <h3>This is a smaller heading.</h3> */
+h3 {
+    text-align: center;
+}
+
+/* <!-- 15. Remove underlines all links --> */
+/* <a href="#">This is a link.</a> */
+a {
+    text-decoration: none;
+}
+
+/* <!-- 16. Add a 20px margin to all <div> elements --> */
+/* <div>This is a div.</div> */
+div {
+    margin: 20px;
+}
+
+/* <!-- 17. Add a 10px padding to all <div> elements --> */
+/* <div>This is a div.</div> */
+div {
+    padding: 10px;
+}
+
+/* <!-- 18. Add a solid, 2px black border to all <div> elements --> */
+/* <div>This is a div.</div> */
+div {
+    border: black 2px solid;
+}
+
+/* <!-- 19. Set the width of all <img> elements to 200px and height to 150px --> */
+/* <img src="image.jpg"> */
+img {
+    width: 200px;
+    height: 150px;
+}
+
+/* <!-- 20. Add a shadow to all <div> elements --> */
+/* <div>This is a div.</div> */
+div {
+    text-shadow: 2px 2px red;
+}
+
+/* <!-- 21. Change the display property of all <span> elements to block --> */
+/* <span>This is a span.</span> */
+span {
+    display: block;
+}
+
+/* <!-- 22. Position a <div> element at the top-right corner of the page --> */
+/* <div>This is a div.</div> */
+#corner {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+
+/* <!-- 23. Float a <div> element to the left --> */
+/* <div>This is a div.</div> */
+#float {
+    float: left;
+}
+
+/* <!-- 24. Use flexbox to center align items inside a container --> */
+/* <div class="container">
+  <div>Item 1</div>
+  <div>Item 2</div>
+</div> */
+.container {
+    text-align: center;
+}
