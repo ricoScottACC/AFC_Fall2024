@@ -147,5 +147,6 @@ span {
   <div>Item 2</div>
 </div> */
 .container {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }

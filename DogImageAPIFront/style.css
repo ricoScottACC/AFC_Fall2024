@@ -1,0 +1,11 @@
+body {
+    background-image: linear-gradient(to bottom, red, orange, yellow, green, blue, indigo, purple, indigo, blue, green, yellow, orange, red);
+}
+
+button {
+    background: blue;
+    color: white;
+}
+img {
+    box-shadow: 10px 10px;
+}
