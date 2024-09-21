@@ -1,0 +1,61 @@
+/* I just like these colors */
+
+body {
+    background-image: url("assets/background.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: black;
+    color: rgb(0, 217, 229);
+}
+
+.form-floating {
+    padding-bottom: 10px;
+}
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: black !important;
+}
+
+.navbar-brand {
+    height: 5vh;
+}
+
+.taco {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover;
+}
+
+.container-fluid{
+    background-color: rgb(90, 90, 90);
+}
+
+#formButtons {
+    display: flex;
+    justify-content: center;
+}
+
+nav, h1 {
+    font-family: "Permanent Marker", cursive;
+    text-align: center;
+}
+
+.menu {
+    
+    width: inherit;
+}
+
+#menuButtons {
+    justify-content: center;
+}
+
+.error-message {
+    color: red;
+}
+
+#mascot {
+    height: 210px;
+    position: fixed; bottom: 0px; right: 0px;
+}

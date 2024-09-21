@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <p id="empty"></p>
+        <button id="addText">Click Me!</button>
+
+        <script>
+            const newParagraph = "I am a bunch of text and when submitted I should be centered. If not, then I might need to do some more research on how to do. :)";
+        
+            document.getElementById('addText').addEventListener('click', function() {
+                const paragraph = document.getElementById('empty');
+                paragraph.textContent = newParagraph;
+                paragraph.style.textAlign = 'center';
+                paragraph.style.fontSize = '6em';
+            });
+        </script>
+    </body>
+</html>
