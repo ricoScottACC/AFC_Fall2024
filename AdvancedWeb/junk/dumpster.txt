@@ -1,0 +1,32 @@
+// class Roller extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       roll1: randomNum(),
+//       roll2: randomNum()
+//     };
+//   }
+
+//   rollAgain = () => {
+//     this.setState({roll1: randomNum()});
+//     this.setState({roll2: randomNum()});
+//   }
+
+//   render() {
+//     return (
+//       <div className="row">
+//         <div className="col">
+//           <Dice roll={this.state.roll1}/>
+//         </div>
+//         <div className="col">
+//           <Dice roll={this.state.roll2}/>
+//         </div>
+//         <h1>You rolled {(this.state.roll1 + 1) + (this.state.roll2 + 1)}!</h1>
+//         <div className="col">
+//           <button type="button" className="btn btn-dark" onClick={this.rollAgain}>
+//             Roll Again</button>
+//         </div>
+//       </div>
+//     )
+//   }
+// }

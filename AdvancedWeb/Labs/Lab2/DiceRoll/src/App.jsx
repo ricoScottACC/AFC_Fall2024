@@ -1,47 +1,24 @@
 import Dice from "../components/Dice";
 import { randomNum } from "../helper";
-import Title from "../components/Title";
-import RollValue from "../components/RollValue";
-import React from "react";
-
-class Roller extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      roll1: randomNum(),
-      roll2: randomNum()
-    };
-  }
-
-  rollAgain = () => {
-    this.setState({roll1: randomNum()});
-    this.setState({roll2: randomNum()});
-  }
-
-  render() {
-    return (
-      <div className="row">
-        <div className="col">
-          <Dice roll={this.state.roll1}/>
-        </div>
-        <div className="col">
-          <Dice roll={this.state.roll2}/>
-        </div>
-        <RollValue num1={this.state.roll1} num2={this.state.roll2}/>
-        <div className="col sm-2">
-          <button type="button" className="btn btn-dark" onClick={this.rollAgain}>
-            Roll Again</button>
-        </div>
-      </div>
-    )
-  }
-}
+import React, { useState } from "react";
 
 const App = () => {
+  const [roll1, setRoll1] = useState(randomNum());
+  const [roll2, setRoll2] = useState(randomNum());
+
+  const rollAgain = () => {
+    setRoll1(randomNum());
+    setRoll2(randomNum());
+  }
+
   return (
     <div className="container">
-      <Title/>
-      <Roller />
+      <h1>Let's Roll!</h1>
+      <Dice roll={roll1}/>
+      <Dice roll={roll2}/>
+      <h1>You rolled {(roll1 + 1) + (roll2 + 1)}!</h1>
+      <button type="button" onClick={rollAgain}>
+        Roll Again</button>
     </div>
   )
 }

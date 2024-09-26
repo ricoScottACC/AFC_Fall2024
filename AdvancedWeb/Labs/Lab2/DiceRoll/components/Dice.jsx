@@ -4,11 +4,9 @@ const Dice = (props) => {
     const {roll} = props;
     
     return (
-        <div className="diceContainer" >
-            
+        <span className="diceContainer" >
             <i className={`fas fa-dice-${die[roll]}`}></i>
-
-        </div>
+        </span>
     );
 };
 

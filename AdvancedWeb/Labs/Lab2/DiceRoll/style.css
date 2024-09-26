@@ -1,18 +1,55 @@
 .diceContainer {
     color: rgb(181, 106, 255);
-    font-size: 15em;
+    font-size: 10em;
     text-align: center;
+    text-shadow: 
+    2px 2px 3px black,
+    0 0 .5em aqua,
+    0 0 0.4em rgb(181, 106, 255);
+    margin: 15px 15px;
+    height: 20px;
+    width: 20px;
   }
 
 body {
-  background-color: black;
+  background-color: #242424;
   text-align: center;
+}
+
+h1, button {
+  font-family: cursive;
 }
 
 .container {
   color: aqua;
+  width: 400px;
+  margin: 50px auto;
+  text-shadow:
+    1px 1px 2px black,
+    0 0 1em rgb(181, 106, 255),
+    0 0 0.6em rgb(181, 106, 255);
 }
+
 
 div {
   align-content: center;
+}
+
+button {
+  background-color: #242424;
+  color: aqua;
+  text-shadow:
+    1px 1px 2px black,
+    0 0 1em rgb(181, 106, 255),
+    0 0 0.6em rgb(181, 106, 255);
+    border-radius: 30px;
+    padding: 0.6em 1.2em;
+    font-size: 1.2em;
+    font-weight: 500;
+    cursor: help;
+    transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: rgb(181, 106, 255);
 }
