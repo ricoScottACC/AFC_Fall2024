@@ -1,6 +1,3 @@
-// name height hair_color gender
-// 1-10
-// https://swapi.dev/api/people
 import axios from 'axios';
 import { useState } from 'react';
 
@@ -18,12 +15,17 @@ const Table = (props) => {
         let getPeople = [];
     
         const requests = urls.map((url) => axios.get(url));
+        
 
-        axios.all(requests).then((responses) => {
+        axios.all(requests)
+        .then((responses) => {
             responses.forEach((resp, i) => {
                 getPeople[i] = resp.data;
             });
-        setPeople(getPeople);
+            setPeople(getPeople);
+        })
+        .catch((error) => {
+            console.log('it broke');
         });
 
         setShowTable(true);
@@ -37,7 +39,7 @@ const Table = (props) => {
         return (
             <tr key={i}>
                 <td>{person.name}</td>
-                <td>{person.height}</td>
+                <td >{person.height}</td>
                 <td>{person.hair_color}</td>
                 <td>{person.gender}</td>
             </tr>
@@ -45,10 +47,11 @@ const Table = (props) => {
     })
     
     return (
-        <div className="table">
-            <button onClick={handleSubmit}>Submit</button>
-            <button onClick={handleReset}>Reset</button>
-
+        <div>
+            <div className="buttons">
+                <button onClick={handleSubmit}>Submit</button>
+                <button onClick={handleReset}>Reset</button>
+            </div>
             {showTable && 
                 <table>
                     <thead>

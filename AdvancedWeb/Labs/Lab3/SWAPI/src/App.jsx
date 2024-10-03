@@ -1,14 +1,18 @@
 import { useState } from 'react'
-import './App.css'
 import Table from '../components/Table'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <Table/>
-    </>
+    <div>
+      <div className="content">
+        <h1>SWAPI - The Star Wars API</h1>
+        <Table/>
+      </div>
+      <div className="video-background">
+        <video autoPlay muted loop src="src/assets/video.mp4" type="video/mp4"></video>
+      </div>
+    </div>
   )
 }
 
