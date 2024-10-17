@@ -2,94 +2,134 @@ import {AppBar, Box, Stack, TextField, Typography} from '@mui/material';
 import {Link, Route, Routes, useNavigate} from 'react-router-dom';
 import Results from './Results';
 import Error from './Error';
-import App from '../src/App';
 import LandingPage from '../src/LandingPage';
 import axios from 'axios';
-import { useState } from 'react';
+import {optionsNow} from "../helper.js";
+import MovieCard from "./MovieCard.jsx";
+import { useForm } from "react-hook-form";
+import {useState, useEffect} from "react";
 
-let searchArray = []
+let searchString = ""
+let movies = []
 
 const NavBar = () => {
+    const { VITE_TMDB_API_TOKEN } = process.env
+    const { register, handleSubmit, setValue, reset } = useForm();
     const navigate = useNavigate()
-    const [search, setSearch] = useState("")
     const base = "https://api.themoviedb.org/3/"
     const searchURL = "search/movie?query="
-    const [showNow, setShowNow] = useState(false)
-    const options = 
-    {method: "get", url:`${base}${searchURL}${search}`,
-    headers: { accept : 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MzJhNGZmMGIzY2FiYTU4ODUxMWM3MWFhNGVhNGMwOCIsIm5iZiI6MTcyNzg3ODgxOC40OTg1Niwic3ViIjoiNjZmYjVhMTlkODA2NDE2NWJkZjE2NTgxIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.LwDBQdHoy7nsOTWWuuNinZhS56fcdmF7eALlbLekAIQ'
-    }};
+    const [hide, setHide] = useState(true)
 
-    const handleNowPlaying = event => {
-        setShowNow(true)
-        console.log(showNow);
+    useEffect(() => {
+        axios(optionsNow)
+            .then((response) => {
+                movies = response.data.results.map((movie) => {
+                    return <MovieCard key={movie.id} movie={movie}/>
+                })
+            })
+            .catch((err) => {
+                navigate("../error")
+            })
+        setHide(true);
+    }, []);
+
+    const handleClick = () => {
+        axios(optionsNow)
+            .then((response) => {
+                movies = response.data.results.map((movie) => {
+                    return <MovieCard key={movie.id} movie={movie}/>
+                })
+                navigate("../results")
+            })
+            .catch((err) => {
+                navigate("../error")
+            })
+        setHide(true);
     }
 
-    const handleChange = event => {
-        setSearch(event.target.value)
+    const handleChange = (event) => {
+        console.log(`${event.target.name}: ${event.target.value}`);
+        setValue(event.target.name, event.target.value);
+        const options =
+            {method: "get", url:`${base}${searchURL}${event.target.value}`,
+                headers: { accept : 'application/json',
+                    Authorization: `Bearer ${VITE_TMDB_API_TOKEN}`}};
+
         axios(options)
-        .then((response) => {
-            searchArray = response.data.results.map((movie) => {
-                return movie
+            .then((response) => {
+                movies = response.data.results.map((movie) => {
+                    return <MovieCard key={movie.id} movie={movie}/>
+                })
+                console.log(movies);
+                movies.length === 0 ? handleClick() : navigate("../results")
             })
-            console.log(searchArray);
-            navigate("../results")
-        })
-        .catch((err) => {
-            navigate("../Error")
-        })
-        console.log(search);
-        setShowNow(false)
+            .catch((err) => {
+                navigate("../error")
+            })
+        searchString = event.target.value;
+        setHide(false);
     }
 
-    const handleSubmit = event => {
-        event.preventDefault();
+    const onSubmit = (data) => {
+        console.log(data);
+        const options =
+            {method: "get", url:`${base}${searchURL}${data.search}`,
+                headers: { accept : 'application/json',
+                    Authorization: `Bearer ${VITE_TMDB_API_TOKEN}`}};
 
         axios(options)
-        .then((response) => {
-            searchArray = response.data.results.map((movie) => {
-                return movie
+            .then((response) => {
+                movies = response.data.results.map((movie) => {
+                    return <MovieCard key={movie.id} movie={movie}/>
+                })
+                console.log(movies);
+                movies.length === 0 ? navigate("../error") : navigate("../results")
             })
-            console.log(searchArray);
-            navigate("../results")
-        })
-        .catch((err) => {
-            navigate("../Error")
-        })
-        console.log(search);
-        setShowNow(false)
+            .catch((err) => {
+                navigate("../error")
+            })
+
+        searchString = data.search;
+        reset();
+        setHide(false);
     }
 
     return (
-        <Box minHeight='100vh' minWidth='100vw' overflow='hidden'>
+        <div>
             <AppBar position='sticky'>
                 <Stack direction='row' gap={4} padding={2} >
                     <Link to='/' style={{textDecoration: 'none' }}>
                         <Typography color='secondary' variant='h5' >Project Movie</Typography>
                     </Link>
-                    <Link to='results' style={{textDecoration: 'none' }} onClick={handleNowPlaying}>
+                    <Link to='results' style={{textDecoration: 'none' }} onClick={handleClick}>
                         <Typography color='secondary' variant='h6' >Now Playing</Typography>
                     </Link>
                     <Box className='searchBox'
+                         onSubmit={handleSubmit(onSubmit)}
                         sx={{ marginLeft: 'auto', marginRight: '0' }}
                         component="form"
                         noValidate
                         autoComplete="off"
-                        onSubmit={handleSubmit}
                         >
-                    <TextField onChange={handleChange} color='secondary' sx={{mt:'-1.5px', mr:''}} label='Search...' variant='outlined' size='small'></TextField>
+                    <TextField
+                        {...register("search")}
+                        onChange={handleChange}
+                        color='secondary'
+                        sx={{mt:'-1.5px', mr:''}}
+                        label='Search...'
+                        variant='outlined'
+                        size='small'></TextField>
                     </Box>
                 </Stack>
             </AppBar>
             <Routes>
                 <Route index element={<LandingPage/>}/>
-                <Route path='results' element={<Results show={showNow}/>}/>
+                <Route path='results' element={<Results show={hide}/>}/>
                 <Route path='error' element={<Error/>}/>
             </Routes>
-        </Box>
+        </div>
     )
 }
 
 export default NavBar;
-export {searchArray};
+export { searchString, movies };

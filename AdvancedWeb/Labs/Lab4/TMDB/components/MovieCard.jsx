@@ -1,42 +1,35 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { Grid2 } from '@mui/material';
-
+import { Accordion, AccordionDetails, AccordionSummary, Card, CardMedia, Typography, Rating } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const MovieCard = ({movie}) => {
-  //const {title, overview, vote_average, poster_path} = props;
+  let pic = ""
+  const picCheck = movie.poster_path ? 
+    pic = `https://image.tmdb.org/t/p/original${movie.poster_path}`
+    : pic = "/src/assets/defaultPoster.jpg";
   
-
-
   return (
-    <Grid2 size={4}>
-    <Card sx={{ maxWidth: 345, placeItems: 'center' }}>
+  <div className='cards'>
+    <Card style={{ width: 345, boxShadow: '0px 0px 10px 5px red' }}>
       <CardMedia
         component="img"
         alt={movie.title}
-        height="auto"
-        image={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+        height="500"
+        image={pic}
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{fontSize: '1.2em', fontWeight: 'bold'}}>
           {movie.title}
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary', textWrap: 'balance'}}>
-          {movie.overview} 
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {movie.vote_average}
-        </Typography>
-      </CardContent>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography gutterBottom variant="body2" sx={{ color: 'text.secondary', textWrap: 'balance', pb: 4}}>
+            {movie.overview} 
+          </Typography>
+          <Rating name="read-only" value={movie.vote_average/2} precision={0.1} readOnly />
+        </AccordionDetails>
+      </Accordion>
     </Card>
-    </Grid2>
+  </div> 
   );
 };
 
 export default MovieCard;
-

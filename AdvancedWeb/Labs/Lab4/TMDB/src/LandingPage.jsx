@@ -1,13 +1,18 @@
-import { useState } from 'react'
-import {Button, Stack, Typography} from "@mui/material";
+import {Button} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 function LandingPage() {
-  const [count, setCount] = useState(0)
+
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate("../results");
+    };
 
   return (
-    <Stack sx={{minHeight: '100vh'}} pb={10} px={4} alignItems={'center'} justifyContent={'center'} >
-        Landing
-    </Stack>
+    <div style={{alignContent: 'center'}}>
+        <p className='landing' style={{fontSize: '5em', fontWeight: 'bold', paddingTop: '100px', fontFamily: 'cursive'}}>Welcome.</p>
+        <Button variant={'contained'} onClick={handleClick}>What's in the box!?... Office</Button>
+    </div>
   )
 }
 

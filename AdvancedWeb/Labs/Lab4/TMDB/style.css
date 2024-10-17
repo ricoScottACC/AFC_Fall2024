@@ -1,4 +1,23 @@
 body {
     background:  url(src/assets/theater.jpeg) no-repeat fixed center, radial-gradient(black,red);
+}
+
+.cardContainer {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
     
 }
+
+.cards {
+    padding: 10px;
+}
+
+div {
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
