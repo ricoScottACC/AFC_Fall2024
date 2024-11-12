@@ -11,7 +11,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import {useState} from "react";
 import axios from "axios";
 
-const Search = styled('div')(({ theme }) => ({
+const Upper = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -118,7 +118,7 @@ export default function SearchAppBar() {
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder="Search…"
+                            placeholder="Upper…"
                             inputProps={{ 'aria-label': 'search' }}
                             //onChange
                             value={searchData}

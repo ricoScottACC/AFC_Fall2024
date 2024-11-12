@@ -1,0 +1,40 @@
+body {
+    background: black url("background.jpeg") no-repeat fixed center;
+    background-size: cover;
+}
+
+.cardContainer {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.cards {
+    padding: 10px;
+}
+
+div {
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.searchContainer {
+    justify-self: center;
+}
+.timeContainer {
+    justify-self: center;
+}
+
+.seasonInput {
+    background-color: black;
+}
+
+.cardTitle {
+    text-shadow:
+            1px 1px 2px black,
+            0 0 1em black;
+}

@@ -116,7 +116,7 @@ const NavBar = () => {
                         onChange={handleChange}
                         color='secondary'
                         sx={{mt:'-1.5px', mr:''}}
-                        label='Search...'
+                        label='Upper...'
                         variant='outlined'
                         size='small'></TextField>
                     </Box>

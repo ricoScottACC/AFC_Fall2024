@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: time
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5442}/${POSTGRES_DB:time_dev}
+    username: ${POSTGRES_USERNAME:time}
+    password: ${POSTGRES_PASSWORD:time}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
